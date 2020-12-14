@@ -1,0 +1,14 @@
+.chat {
+    border-radius: 10px;
+    grid-area: chat;
+    background: #555;
+    align-self: start;
+    min-width: 300px;
+    height: calc(100vh - 130px);
+    min-height: 450px;
+    h1 {
+        p {
+            display: inline;
+        }
+    }
+}

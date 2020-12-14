@@ -1,0 +1,16 @@
+.socials-second {
+    grid-area: socials;
+    display: none;
+
+    a {
+        color: transparent;
+        &:visited {
+            color: transparent;
+        }
+    }
+
+    @media (max-width: 580px) {
+        display: flex;
+        justify-content: space-around;
+    }
+}

@@ -1,0 +1,29 @@
+.desc {
+    grid-area: desc;
+    // background: #0ff;
+    align-self: end;
+
+    @media (max-width: 950px) {
+        align-self: start;
+    }
+
+    h1 {
+        font-size: 3rem;
+        p {
+            display: inline;
+            white-space: nowrap;
+        }
+    }
+
+    hr {
+        margin: 1rem 0;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid var(--text);
+    }
+
+    p {
+        font-size: 2rem;
+        font-weight: 300;
+    }
+}
