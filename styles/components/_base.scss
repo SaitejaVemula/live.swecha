@@ -26,12 +26,13 @@ body {
     margin: auto;
     background-color: var(--bg);
     color: var(--text);
-    font-family: Roboto, sans-serif;
+    font-family: Roboto, "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     padding: 20px;
     font-size: 1.4rem;
     font-weight: 300;
-    min-height: 100vh;
+}
 
+main {
     display: grid;
     grid-template-areas:
         "nav nav nav nav nav"
