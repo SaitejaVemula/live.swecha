@@ -1,14 +1,91 @@
 .chat {
     border-radius: 10px;
+    padding: 10px;
     grid-area: chat;
-    background: #555;
-    align-self: start;
-    min-width: 300px;
-    height: calc(100vh - 130px);
-    min-height: 450px;
-    h1 {
-        p {
-            display: inline;
+    align-self: stretch;
+    background: var(--chat-bg);
+    width: 300px;
+    max-height: 473px;
+    // overflow-y: scroll;
+    position: relative;
+
+    &box {
+        overflow-y: auto;
+        max-height: calc(100% - 60px);
+
+        &__comment {
+            display: flex;
+            margin-bottom: 20px;
+
+            &-icon {
+                font-weight: 900;
+                font-size: 40px;
+                align-self: flex-start;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-width: 40px;
+                height: 40px;
+                margin-right: 10px;
+                background: var(--accent);
+                border-radius: 5px;
+            }
+
+            &-text {
+                margin-right: 10px;
+                font-size: 1.6rem;
+                .username {
+                    font-weight: 700;
+                }
+
+                .message {
+                    font-size: 1.4rem;
+                }
+            }
+
+            &:last-child {
+                margin-bottom: 60px;
+            }
         }
+    }
+
+    &__submit {
+        position: absolute;
+        // background: #0f0;
+        width: calc(100% - 20px);
+        bottom: 10px;
+        left: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        input {
+            background: var(--input-bg);
+            width: calc(100% - 25px);
+            align-self: stretch;
+            padding: 5px;
+            border: 1px solid var(--text);
+            border-radius: 5px;
+
+            &:focus {
+                outline: none;
+                border: 1px solid var(--accent);
+            }
+        }
+
+        button {
+            display: block;
+            background: transparent;
+            outline: none;
+            border: none;
+            width: 25px;
+            height: 25px;
+            margin-left: 10px;
+        }
+    }
+
+    @media (max-width: 950px) {
+        width: auto;
+        height: 250px;
     }
 }

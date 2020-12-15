@@ -5,7 +5,9 @@
     justify-self: stretch;
     align-self: stretch;
     background: #000;
-    // width: calc(70vw - 60px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     video {
         width: 100%;

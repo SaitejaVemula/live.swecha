@@ -8,12 +8,18 @@
 html {
   --bg: #e4e4e4;
   --text: #04040c;
+  --accent: #1e7fbb;
+  --chat-bg: #ccc;
+  --input-bg: #fff;
   font-size: 62.5%;
 }
 
 html[data-theme="dark"] {
   --bg: #040404;
+  --accent: #009dff;
   --text: #e4e4e4;
+  --chat-bg: #222;
+  --input-bg: #000;
 }
 
 body {
@@ -28,13 +34,13 @@ body {
   min-height: 100vh;
   display: -ms-grid;
   display: grid;
-      grid-template-areas: "nav nav nav nav nav" "video video video chat chat" "desc desc desc chat chat";
+      grid-template-areas: "nav nav nav nav nav" "video video video chat chat" "desc desc desc . .";
   grid-gap: 20px;
 }
 
 @media (max-width: 950px) {
   body {
-        grid-template-areas: "nav" "desc" "video" "video" "chat" "chat";
+        grid-template-areas: "nav" "desc" "video" "chat";
   }
 }
 
@@ -57,6 +63,24 @@ strong {
 .smooth * {
   -webkit-transition: all 0.1s;
   transition: all 0.1s;
+}
+
+/* Scroll Bar */
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 5px #fff;
+          box-shadow: inset 0 0 5px #fff;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 10px;
 }
 
 header {
@@ -138,12 +162,19 @@ header .theme-toggle {
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: video;
-  -ms-grid-column-align: stretch;
-      justify-self: stretch;
+  justify-self: stretch;
   -ms-flex-item-align: stretch;
-      -ms-grid-row-align: stretch;
       align-self: stretch;
   background: #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .video video {
@@ -153,22 +184,117 @@ header .theme-toggle {
 
 .chat {
   border-radius: 10px;
+  padding: 10px;
   -ms-grid-row: 2;
-  -ms-grid-row-span: 2;
   -ms-grid-column: 4;
   -ms-grid-column-span: 2;
   grid-area: chat;
-  background: #555;
-  -ms-flex-item-align: start;
-      -ms-grid-row-align: start;
-      align-self: start;
-  min-width: 300px;
-  height: calc(100vh - 130px);
-  min-height: 450px;
+  -ms-flex-item-align: stretch;
+      -ms-grid-row-align: stretch;
+      align-self: stretch;
+  background: var(--chat-bg);
+  width: 300px;
+  max-height: 473px;
+  position: relative;
 }
 
-.chat h1 p {
-  display: inline;
+.chatbox {
+  overflow-y: auto;
+  max-height: calc(100% - 60px);
+}
+
+.chatbox__comment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.chatbox__comment-icon {
+  font-weight: 900;
+  font-size: 40px;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  background: var(--accent);
+  border-radius: 5px;
+}
+
+.chatbox__comment-text {
+  margin-right: 10px;
+  font-size: 1.6rem;
+}
+
+.chatbox__comment-text .username {
+  font-weight: 700;
+}
+
+.chatbox__comment-text .message {
+  font-size: 1.4rem;
+}
+
+.chatbox__comment:last-child {
+  margin-bottom: 60px;
+}
+
+.chat__submit {
+  position: absolute;
+  width: calc(100% - 20px);
+  bottom: 10px;
+  left: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.chat__submit input {
+  background: var(--input-bg);
+  width: calc(100% - 25px);
+  -ms-flex-item-align: stretch;
+      -ms-grid-row-align: stretch;
+      align-self: stretch;
+  padding: 5px;
+  border: 1px solid var(--text);
+  border-radius: 5px;
+}
+
+.chat__submit input:focus {
+  outline: none;
+  border: 1px solid var(--accent);
+}
+
+.chat__submit button {
+  display: block;
+  background: transparent;
+  outline: none;
+  border: none;
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+}
+
+@media (max-width: 950px) {
+  .chat {
+    width: auto;
+    height: 250px;
+  }
 }
 
 .desc {
