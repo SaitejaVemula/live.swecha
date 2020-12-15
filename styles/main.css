@@ -322,6 +322,7 @@ header .theme-toggle {
 .desc h1 p {
   display: inline;
   white-space: nowrap;
+  font-size: 2rem;
 }
 
 .desc hr {
@@ -332,7 +333,7 @@ header .theme-toggle {
 }
 
 .desc p {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 300;
 }
 
