@@ -13,10 +13,12 @@ html {
     font-size: 62.5%;
 
     &[data-theme="dark"] {
-        --bg: #040404;
+        // --bg: #040404;
+        // --chat-bg: #222;
+        --bg: #1f1f1f;
         --accent: #009dff;
         --text: #e4e4e4;
-        --chat-bg: #222;
+        --chat-bg: #040404;
         --input-bg: #000;
     }
 }
